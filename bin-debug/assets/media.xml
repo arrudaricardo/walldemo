@@ -1,0 +1,124 @@
+<gallery>
+	<tile type="image" id="00">
+		<thumb>assets/gallery/car02_thumb.jpg</thumb>
+		<image>assets/gallery/car02.jpg</image>
+	</tile>
+	<tile type="image" id="01">
+		<thumb>assets/gallery/car03_thumb.jpg</thumb>
+		<image>assets/gallery/car03.jpg</image>
+	</tile>
+	<tile type="image" id="02">
+		<thumb>assets/gallery/car01_thumb.jpg</thumb>
+		<image>assets/gallery/car01.jpg</image>
+		
+	</tile>
+	<tile type="image" id="03">
+		<thumb>assets/gallery/car04_thumb.jpg</thumb>
+		<image>assets/gallery/car04.jpg</image>
+	</tile>
+	<tile type="press" id="04">
+		<thumb>assets/gallery/press01_thumb.jpg</thumb>
+		<image>assets/gallery/press01_image.jpg</image>
+		<url>http://www.google.com/</url>
+	</tile>
+	<tile type="image" id="05">
+		<thumb>assets/gallery/car05_thumb.jpg</thumb>
+		<image>assets/gallery/car05.jpg</image>
+	</tile>
+	<tile type='video' id='06'>
+		<thumb>assets/gallery/video01_thumb.jpg</thumb>
+		<image>assets/gallery/video.flv</image>
+	</tile>
+	<tile type="image" id="07">
+		<thumb>assets/gallery/car01_thumb.jpg</thumb>
+		<image>assets/gallery/car01.jpg</image>
+	</tile>
+	<tile type="image" id="08">
+		<thumb>assets/gallery/car02_thumb.jpg</thumb>
+		<image>assets/gallery/car02.jpg</image>
+	</tile>
+	<tile type="image" id="09">
+		<thumb>assets/gallery/car03_thumb.jpg</thumb>
+		<image>assets/gallery/car03.jpg</image>
+	</tile>
+	<tile type="image" id="10">
+		<thumb>assets/gallery/car04_thumb.jpg</thumb>
+		<image>assets/gallery/car04.jpg</image>
+	</tile>
+	<tile type="press" id="11">
+		<thumb>assets/gallery/press01_thumb.jpg</thumb>
+		<image>assets/gallery/press01_image.jpg</image>
+		<url>http://www.google.com/</url>
+	</tile>
+	<tile type="image" id="12">
+		<thumb>assets/gallery/car05_thumb.jpg</thumb>
+		<image>assets/gallery/car05.jpg</image>
+	</tile>
+	<tile type='video' id='13'>
+		<thumb>assets/gallery/video01_thumb.jpg</thumb>
+		<image>assets/gallery/video.flv</image>
+	</tile>
+	<tile type="image" id="14">
+		<thumb>assets/gallery/car01_thumb.jpg</thumb>
+		<image>assets/gallery/car01.jpg</image>
+	</tile>
+	<tile type="image" id="15">
+		<thumb>assets/gallery/car02_thumb.jpg</thumb>
+		<image>assets/gallery/car02.jpg</image>
+	</tile>
+	<tile type="image" id="16">
+		<thumb>assets/gallery/car03_thumb.jpg</thumb>
+		<image>assets/gallery/car03.jpg</image>
+	</tile>
+	<tile type="image" id="17">
+		<thumb>assets/gallery/car04_thumb.jpg</thumb>
+		<image>assets/gallery/car04.jpg</image>
+	</tile>
+	<tile type="press" id="18">
+		<thumb>assets/gallery/press01_thumb.jpg</thumb>
+		<image>assets/gallery/press01_image.jpg</image>
+		<url>http://www.google.com/</url>
+	</tile>
+	<tile type="image" id="19">
+		<thumb>assets/gallery/car05_thumb.jpg</thumb>
+		<image>assets/gallery/car05.jpg</image>
+	</tile>
+	<tile type='video' id='20'>
+		<thumb>assets/gallery/video01_thumb.jpg</thumb>
+		<image>assets/gallery/video.flv</image>
+	</tile>
+	<tile type="image" id="21">
+		<thumb>assets/gallery/car01_thumb.jpg</thumb>
+		<image>assets/gallery/car01.jpg</image>
+	</tile>
+	<tile type="image" id="22">
+		<thumb>assets/gallery/car02_thumb.jpg</thumb>
+		<image>assets/gallery/car02.jpg</image>
+	</tile>
+	<tile type="image" id="23">
+		<thumb>assets/gallery/car03_thumb.jpg</thumb>
+		<image>assets/gallery/car03.jpg</image>
+	</tile>
+	<tile type="image" id="24">
+		<thumb>assets/gallery/car04_thumb.jpg</thumb>
+		<image>assets/gallery/car04.jpg</image>
+	</tile>
+	<tile type="press" id="25">
+		<thumb>assets/gallery/press01_thumb.jpg</thumb>
+		<image>assets/gallery/press01_image.jpg</image>
+		<url>http://www.google.com/</url>
+	</tile>
+	<tile type='video' id='26'>
+		<thumb>assets/gallery/video01_thumb.jpg</thumb>
+		<image>assets/gallery/video.flv</image>
+	</tile>
+	<tile type="image" id="27">
+		<thumb>assets/gallery/car05_thumb.jpg</thumb>
+		<image>assets/gallery/car05.jpg</image>
+	</tile>
+	<tile type="image" id="28">
+		<thumb>assets/gallery/car05_thumb.jpg</thumb>
+		<image>assets/gallery/car05.jpg</image>
+	</tile>
+	
+</gallery>
