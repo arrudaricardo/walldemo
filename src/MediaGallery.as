@@ -14,6 +14,8 @@ package
 	import com.greensock.TweenMax;
 	import com.greensock.easing.*;
 	import com.thelab.optima.controller.MediaGalleryController;
+	import com.thelab.optima.view.InteractiveCube;
+	import com.thelab.optima.view.OverlayView;
 	
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;
@@ -21,8 +23,6 @@ package
 	import flash.events.MouseEvent;
 	
 	import net.hires.debug.Stats;
-	import com.thelab.optima.view.InteractiveCube;
-	import com.thelab.optima.view.OverlayView;
 	
 	
 	[SWF(width='1000',height='400',backgroundColor='#fefefe',frameRate='60')]
@@ -47,6 +47,7 @@ package
 		//cheap 
 		private var _containerDest:int = -100;
 		
+		private var _selectedCube:InteractiveCube;
 		
 		public function MediaGallery()
 		{
@@ -178,11 +179,10 @@ package
 			var rows:Number = 3;
 			var count:Number = _controller.tileData.length;
 			
-			var cols:Number = Math.ceil(count/rows);
+			//var cols:Number = Math.ceil(count/rows);
 			
 			var _x:Number;
 			var _y:Number;
-			trace('cols = '+cols);
 			
 			var ix:Number = 0;
 			for(var i:int=0;i<count;i++)
@@ -276,17 +276,36 @@ package
 		//select
 		private function handleCubeMouseDown(e:MouseEvent3D):void
 		{
-			var c:InteractiveCube = (e.currentTarget as InteractiveCube);
+			//var c:InteractiveCube = (e.currentTarget as InteractiveCube);
+			_selectedCube = (e.currentTarget as InteractiveCube);
 			
+			doSelect(_selectedCube);
+			/*
 			for(var i:int = 0;i<_cubeArray.length;i++)
 			{	
-				if(_cubeArray[i]!=c)
+				if(_cubeArray[i]!=_selectedCube)
 				{
 					(_cubeArray[i] as InteractiveCube).deselect();
 				}
 				else
 				{
-					c.select();
+					_selectedCube.select();
+				}
+			}
+			*/
+		}
+		
+		private function doSelect(cube:InteractiveCube):void
+		{
+			for(var i:int = 0;i<_cubeArray.length;i++)
+			{	
+				if(_cubeArray[i]!=cube)
+				{
+					(_cubeArray[i] as InteractiveCube).deselect();
+				}
+				else
+				{
+					cube.select();
 				}
 			}
 		}
@@ -300,21 +319,67 @@ package
 		}
 		
 		
-		
-		
 		private function showOverlay():void
 		{
-			_overlay = new OverlayView();
-			//listener for close event from overlay
-			_overlay.close.add(closeOverlay);
-			
-			this.addChild(_overlay);
+			if(!_overlay)
+			{
+				_overlay = new OverlayView();
+				_overlay.arrowPressed.add(arrowSwitchSelection);
+				//listener for close event from overlay
+				_overlay.close.add(closeOverlay);
+			}
+			if(!this.contains(_overlay))
+			{	
+				this.addChild(_overlay);
+			}
 		}
 		
 		private function closeOverlay():void
 		{
+			if(_overlay && this.contains(_overlay))
+			{
+				this.removeChild(_overlay);
+			}
+			_selectedCube.deselect();	
+		}
+		
+		
+		private function arrowSwitchSelection(direction:String):void
+		{
+			trace(direction);
 			
-			this.removeChild(_overlay);
+			trace('_selectedCube.cube_id == '+_selectedCube.cube_id);
+			
+			var id:int = _selectedCube.cube_id;
+			
+			
+			switch(direction)
+			{
+				case OverlayView.RIGHT:
+					if(id<_cubeArray.length-1)
+					{
+						id++;
+					}
+					else
+					{
+						id=0;
+					}
+					_selectedCube = _cubeArray[id];
+					this.doSelect(_selectedCube);
+				break
+				case OverlayView.LEFT:
+					if(id>0)
+					{
+						id--
+					}
+					else
+					{
+						id = _cubeArray.length-1;
+					}
+					_selectedCube = _cubeArray[id];
+					this.doSelect(_selectedCube);
+				break;
+			}
 		}
 		
 		//motion

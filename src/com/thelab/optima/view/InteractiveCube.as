@@ -19,8 +19,7 @@ package com.thelab.optima.view
 	import org.osflash.signals.Signal;
 	
 	public class InteractiveCube extends ObjectContainer3D
-	{
-		
+	{	
 		public var viewRequested:Signal;
 		
 		private var _data:MediaGalleryVO;
@@ -32,15 +31,11 @@ package com.thelab.optima.view
 		private var _active:Boolean = false;
 		
 		private var _cube:Cube;
+		
 		private var _cube_id:int;
 		
 		private var _display:CubeDisplay;
 		
-		
-	
-		
-		private var _origCubeMaterials:CubeMaterialsData;
-		private var _selectedCubeMaterials:CubeMaterialsData;
 		
 		public function InteractiveCube(data:MediaGalleryVO,initarray:Array)
 		{
@@ -64,80 +59,40 @@ package com.thelab.optima.view
 			_cube.segmentsD = 1;
 			_cube.rotationY=4;
 			
-			
-			
-			
+			//
 			_display = new CubeDisplay(_data.thumb);
-			var t:MovieMaterial = new MovieMaterial(_display as MovieClip);
-			
-			var greyMaterial:ColorMaterial  = new ColorMaterial(0x707070);
-			
-			_origCubeMaterials = new CubeMaterialsData();
-			_origCubeMaterials.front = t; //new BitmapFileMaterial(_data.thumb,{smoothing:true});
-			_origCubeMaterials.bottom = greyMaterial;
-			_origCubeMaterials.top = greyMaterial;
-			_origCubeMaterials.left = greyMaterial;
-			_origCubeMaterials.right= greyMaterial;
-			_origCubeMaterials.back = greyMaterial;
 			
 			
+			var greyMat:ColorMaterial  = new ColorMaterial(0x707070);
 			
-			var whiteMaterial:ColorMaterial = new ColorMaterial(0xffffff);
-			
-			_selectedCubeMaterials = new CubeMaterialsData();
-			_selectedCubeMaterials.front = whiteMaterial
-			_selectedCubeMaterials.bottom = whiteMaterial
-			_selectedCubeMaterials.top = whiteMaterial
-			_selectedCubeMaterials.left = whiteMaterial
-			_selectedCubeMaterials.right= whiteMaterial
-			_selectedCubeMaterials.back = whiteMaterial
-			
-			
-			_cube.cubeMaterials = _origCubeMaterials;
+			var mats:CubeMaterialsData = new CubeMaterialsData();
+			mats.front = new MovieMaterial(_display as MovieClip);
+			mats.bottom = greyMat;
+			mats.top = greyMat;
+			mats.left = greyMat;
+			mats.right= greyMat;
+			mats.back = greyMat;
+					
+			_cube.cubeMaterials = mats
 			
 			addChild(_cube);
 		}
-		
-		private var _selectedPlane:Plane;
 		
 		public function select():void
 		{
 			this._selected = true;
 			
 			trace('selected id = '+this.cube_id);
-			
-			if(!_selectedPlane)
-			{
-				_selectedPlane = new Plane();
-				_selectedPlane.material = new ColorMaterial(0xcccccc,.25);
-				_selectedPlane.yUp  =true;
-				_selectedPlane.z = -10;
-				_selectedPlane.width = 11;
-				_selectedPlane.height = 11;
-				_selectedPlane.rotationX = 90;
-			}
-			addChild(_selectedPlane);
+			_display.select();
 			
 			//could put signal right here, but for clarity:::
-			
 			this.requestView();
-		
-			//this is a bug and doesnt work.
-			//for now have placed a plane over the selected cube.
-			_cube.cubeMaterials = _selectedCubeMaterials;
 		}
 		
 		
 		public function deselect():void
-		{
-			for(var i:int=0;i<this.children.length;i++)
-			{
-				if(this.children[i] == _selectedPlane)
-				{
-					this.removeChild(_selectedPlane);
-				}
-			}
-			_cube.cubeMaterials = _origCubeMaterials;
+		{			
+			_display.deselect();
 			this._selected = false;
 			
 		}
@@ -147,7 +102,11 @@ package com.thelab.optima.view
 		{
 			viewRequested.dispatch();
 		}
+		
 
+		
+		
+		//getters/setters
 		public function get origZ():Number
 		{
 			return _origZ;
