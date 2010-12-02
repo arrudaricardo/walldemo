@@ -21,6 +21,8 @@ package
 	import flash.events.MouseEvent;
 	
 	import net.hires.debug.Stats;
+	import com.thelab.optima.view.InteractiveCube;
+	import com.thelab.optima.view.OverlayView;
 	
 	
 	[SWF(width='1000',height='400',backgroundColor='#fefefe',frameRate='60')]
@@ -107,7 +109,9 @@ package
 			//_camera.x = 200;
 			_scene = new Scene3D();
 			
-			_camera.rotationY = -50
+			
+			//initial camera rotated away:
+			//_camera.rotationY = -50
 			
 			_view.camera = _camera;
 			_view.scene = _scene;
